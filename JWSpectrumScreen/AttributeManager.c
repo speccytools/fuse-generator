@@ -11,7 +11,7 @@
 #include <string.h>
 
 #include "AttributeManager.h"
-#include "Colourmacros.h"
+#include "ColourMacros.h"
 
 const static float brightnessThresholdValue = 0.5f;
 const static int tolerance = 1;
