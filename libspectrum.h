@@ -1,8 +1,6 @@
 /* libspectrum.h: the library for dealing with ZX Spectrum emulator files
    Copyright (c) 2001-2015 Philip Kendall, Darren Salt, Fredrick Meunier
 
-   $Id: libspectrum.h.in 5733 2016-08-14 12:45:40Z fredm $
-
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
    the Free Software Foundation; either version 2 of the License, or
@@ -85,6 +83,8 @@ typedef uint64_t libspectrum_qword;
 typedef  int64_t libspectrum_signed_qword;
 
 /* glib replacement (if necessary) */
+#define LIBSPECTRUM_HAS_GLIB_REPLACEMENT 1
+
 #ifndef	FALSE
 #define	FALSE	(0)
 #endif
@@ -223,10 +223,13 @@ struct _GArray {
 
 WIN32_DLL GArray* g_array_new( gboolean zero_terminated, gboolean clear,
 		      guint element_size );
+WIN32_DLL GArray* g_array_sized_new( gboolean zero_terminated, gboolean clear,
+                      guint element_size, guint reserved_size );
 #define g_array_append_val(a,v) g_array_append_vals( a, &(v), 1 );
 WIN32_DLL GArray* g_array_append_vals( GArray *array, gconstpointer data, guint len );
 #define g_array_index(a,t,i) (*(((t*)a->data)+i))
 WIN32_DLL GArray* g_array_set_size( GArray *array, guint length );
+WIN32_DLL GArray* g_array_remove_index_fast( GArray *array, guint index );
 WIN32_DLL gchar* g_array_free( GArray *array, gboolean free_segment );
 
 #include <TargetConditionals.h>
@@ -1050,6 +1053,10 @@ WIN32_DLL libspectrum_byte * libspectrum_snap_didaktik80_rom( libspectrum_snap *
 WIN32_DLL void libspectrum_snap_set_didaktik80_rom( libspectrum_snap *snap, int idx, libspectrum_byte* didaktik80_rom );
 WIN32_DLL libspectrum_byte * libspectrum_snap_didaktik80_ram( libspectrum_snap *snap, int idx );
 WIN32_DLL void libspectrum_snap_set_didaktik80_ram( libspectrum_snap *snap, int idx, libspectrum_byte* didaktik80_ram );
+WIN32_DLL int libspectrum_snap_covox_active( libspectrum_snap *snap );
+WIN32_DLL void libspectrum_snap_set_covox_active( libspectrum_snap *snap, int covox_active );
+WIN32_DLL libspectrum_byte libspectrum_snap_covox_dac( libspectrum_snap *snap );
+WIN32_DLL void libspectrum_snap_set_covox_dac( libspectrum_snap *snap, libspectrum_byte covox_dac );
 
 /*
  * Tape handling routines
