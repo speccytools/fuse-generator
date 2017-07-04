@@ -12,6 +12,7 @@
 		8D576312048677EA00EA77CD /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 08FB77B6FE84183AC02AAC07 /* main.c */; settings = {ATTRIBUTES = (); }; };
 		8D576314048677EA00EA77CD /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA1909FFE8422F4C02AAC07 /* CoreFoundation.framework */; };
 		8D5B49A804867FD3000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D5B49A704867FD3000E48DA /* InfoPlist.strings */; };
+		B6168CE51F0B3D06008C99E6 /* buffer.c in Sources */ = {isa = PBXBuildFile; fileRef = B6168CE41F0B3D06008C99E6 /* buffer.c */; };
 		B63944AB0D18B0430059DAA5 /* LibspectrumSCRExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = B63944A90D18B0430059DAA5 /* LibspectrumSCRExtractor.m */; };
 		B63944FB0D18C7C30059DAA5 /* tape_accessors.txt in Sources */ = {isa = PBXBuildFile; fileRef = B6D30B2E0D162B910036CC54 /* tape_accessors.txt */; };
 		B63944FC0D18C7C30059DAA5 /* snap_accessors.txt in Sources */ = {isa = PBXBuildFile; fileRef = B6D30B2C0D162B810036CC54 /* snap_accessors.txt */; };
@@ -110,6 +111,7 @@
 		61E3BCFA0870B4F2002186A0 /* GenerateThumbnailForURL.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = GenerateThumbnailForURL.m; sourceTree = "<group>"; };
 		8D576316048677EA00EA77CD /* FuseGenerator.qlgenerator */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FuseGenerator.qlgenerator; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D576317048677EA00EA77CD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		B6168CE41F0B3D06008C99E6 /* buffer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = buffer.c; sourceTree = "<group>"; };
 		B63944A80D18B0430059DAA5 /* LibspectrumSCRExtractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibspectrumSCRExtractor.h; sourceTree = "<group>"; };
 		B63944A90D18B0430059DAA5 /* LibspectrumSCRExtractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibspectrumSCRExtractor.m; sourceTree = "<group>"; };
 		B63944CB0D18C1CD0059DAA5 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = SOURCE_ROOT; };
@@ -256,6 +258,7 @@
 				B6D30B2E0D162B910036CC54 /* tape_accessors.txt */,
 				B6D30B2C0D162B810036CC54 /* snap_accessors.txt */,
 				B6D30B2A0D162B720036CC54 /* libspectrum.h.in */,
+				B6168CE41F0B3D06008C99E6 /* buffer.c */,
 				B6D30AE50D1627ED0036CC54 /* bzip2.c */,
 				B6D30AE70D16280E0036CC54 /* creator.c */,
 				B6D30AE80D16280E0036CC54 /* crypto.c */,
@@ -443,6 +446,7 @@
 				B6D30B090D1628F20036CC54 /* symbol_table.c in Sources */,
 				B6D30B0A0D1628F20036CC54 /* szx.c in Sources */,
 				B6D30B0B0D1628F20036CC54 /* tap.c in Sources */,
+				B6168CE51F0B3D06008C99E6 /* buffer.c in Sources */,
 				B6D30B0C0D1628F20036CC54 /* tape.c in Sources */,
 				B6D30B0F0D1629080036CC54 /* tape_block.c in Sources */,
 				B6D30B120D16298C0036CC54 /* timings.c in Sources */,
