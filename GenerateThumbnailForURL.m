@@ -51,7 +51,9 @@ OSStatus GenerateThumbnailForURL(void *thisInterface, QLThumbnailRequestRef thum
   case TYPE_SCR:
     {
       JWSpectrumScreen* screen =
-        [[[JWSpectrumScreen alloc] initFromData:[speccyFile scrData]] autorelease];
+        [[[JWSpectrumScreen alloc] initFromData:[speccyFile scrData]
+                                        mltHint:[speccyFile type] == LIBSPECTRUM_ID_SCREEN_MLT]
+         autorelease];
       NSBitmapImageRep* imageRep = [[screen imageRep] retain];
       NSSize canvasSize = [screen canvasSize];
               

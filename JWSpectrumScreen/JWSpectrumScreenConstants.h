@@ -25,7 +25,8 @@
 typedef enum ScreenMode {
 	ScreenModeSinclair,
 	ScreenModeTimexHiCol,
-	ScreenModeTimexHiRes
+	ScreenModeTimexHiRes,
+	ScreenModeMLT
 } ScreenMode;
 
 

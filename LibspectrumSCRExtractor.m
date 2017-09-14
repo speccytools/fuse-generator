@@ -96,6 +96,13 @@ mmap_file( const char *filename, unsigned char **buffer, size_t *length )
   return self;
 }
 
+- (libspectrum_id_t) type
+{
+  if(!scrData) { [self processFile]; }
+
+  return type;
+}
+
 - (libspectrum_class_t) class
 {
   if(!scrData) { [self processFile]; }

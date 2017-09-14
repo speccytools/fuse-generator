@@ -21,6 +21,7 @@
 		B64AC83C1D6B2D5C0024E7FE /* zip.h in Headers */ = {isa = PBXBuildFile; fileRef = B64AC83A1D6B2D5C0024E7FE /* zip.h */; };
 		B67F1E790E93A39800246616 /* garray.c in Sources */ = {isa = PBXBuildFile; fileRef = B67F1E780E93A39800246616 /* garray.c */; };
 		B67F1E7B0E93A3AF00246616 /* memory.c in Sources */ = {isa = PBXBuildFile; fileRef = B67F1E7A0E93A3AF00246616 /* memory.c */; };
+		B6B682991F5D69EE00EEAD34 /* mmc.c in Sources */ = {isa = PBXBuildFile; fileRef = B6B682981F5D69EE00EEAD34 /* mmc.c */; };
 		B6D30AE60D1627ED0036CC54 /* bzip2.c in Sources */ = {isa = PBXBuildFile; fileRef = B6D30AE50D1627ED0036CC54 /* bzip2.c */; };
 		B6D30AEC0D16280E0036CC54 /* creator.c in Sources */ = {isa = PBXBuildFile; fileRef = B6D30AE70D16280E0036CC54 /* creator.c */; };
 		B6D30AED0D16280E0036CC54 /* crypto.c in Sources */ = {isa = PBXBuildFile; fileRef = B6D30AE80D16280E0036CC54 /* crypto.c */; };
@@ -51,10 +52,6 @@
 		B6D30B220D1629C20036CC54 /* zxs.c in Sources */ = {isa = PBXBuildFile; fileRef = B6D30B1A0D1629C20036CC54 /* zxs.c */; };
 		B6D30B270D162A130036CC54 /* ghash.c in Sources */ = {isa = PBXBuildFile; fileRef = B6D30B250D162A130036CC54 /* ghash.c */; };
 		B6D30B280D162A130036CC54 /* gslist.c in Sources */ = {isa = PBXBuildFile; fileRef = B6D30B260D162A130036CC54 /* gslist.c */; };
-		B6D30B410D16533C0036CC54 /* AttributeBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D30B370D16533C0036CC54 /* AttributeBlock.m */; };
-		B6D30B430D16533C0036CC54 /* AttributeBlockIterator.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D30B390D16533C0036CC54 /* AttributeBlockIterator.m */; };
-		B6D30B450D16533C0036CC54 /* AttributeBlockTimex.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D30B3B0D16533C0036CC54 /* AttributeBlockTimex.m */; };
-		B6D30B470D16533C0036CC54 /* AttributeBlockTimexHiRes.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D30B3D0D16533C0036CC54 /* AttributeBlockTimexHiRes.m */; };
 		B6D30B480D16533C0036CC54 /* AttributeManager.c in Sources */ = {isa = PBXBuildFile; fileRef = B6D30B3E0D16533C0036CC54 /* AttributeManager.c */; };
 		B6D30B4C0D1653510036CC54 /* ColourMacros.c in Sources */ = {isa = PBXBuildFile; fileRef = B6D30B4A0D1653510036CC54 /* ColourMacros.c */; };
 		B6D30B510D1653730036CC54 /* JWSpectrumScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D30B4F0D1653730036CC54 /* JWSpectrumScreen.m */; };
@@ -120,6 +117,7 @@
 		B64AC83A1D6B2D5C0024E7FE /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
 		B67F1E780E93A39800246616 /* garray.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = garray.c; sourceTree = "<group>"; };
 		B67F1E7A0E93A3AF00246616 /* memory.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = memory.c; sourceTree = "<group>"; };
+		B6B682981F5D69EE00EEAD34 /* mmc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mmc.c; sourceTree = "<group>"; };
 		B6D30AE30D1627C90036CC54 /* libspectrum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libspectrum.h; path = ../libspectrum.h; sourceTree = "<group>"; };
 		B6D30AE50D1627ED0036CC54 /* bzip2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bzip2.c; sourceTree = "<group>"; };
 		B6D30AE70D16280E0036CC54 /* creator.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = creator.c; sourceTree = "<group>"; };
@@ -156,14 +154,6 @@
 		B6D30B2A0D162B720036CC54 /* libspectrum.h.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libspectrum.h.in; sourceTree = "<group>"; };
 		B6D30B2C0D162B810036CC54 /* snap_accessors.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = snap_accessors.txt; sourceTree = "<group>"; };
 		B6D30B2E0D162B910036CC54 /* tape_accessors.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tape_accessors.txt; sourceTree = "<group>"; };
-		B6D30B360D16533C0036CC54 /* AttributeBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AttributeBlock.h; path = JWSpectrumScreen/AttributeBlock.h; sourceTree = "<group>"; };
-		B6D30B370D16533C0036CC54 /* AttributeBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AttributeBlock.m; path = JWSpectrumScreen/AttributeBlock.m; sourceTree = "<group>"; };
-		B6D30B380D16533C0036CC54 /* AttributeBlockIterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AttributeBlockIterator.h; path = JWSpectrumScreen/AttributeBlockIterator.h; sourceTree = "<group>"; };
-		B6D30B390D16533C0036CC54 /* AttributeBlockIterator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AttributeBlockIterator.m; path = JWSpectrumScreen/AttributeBlockIterator.m; sourceTree = "<group>"; };
-		B6D30B3A0D16533C0036CC54 /* AttributeBlockTimex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AttributeBlockTimex.h; path = JWSpectrumScreen/AttributeBlockTimex.h; sourceTree = "<group>"; };
-		B6D30B3B0D16533C0036CC54 /* AttributeBlockTimex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AttributeBlockTimex.m; path = JWSpectrumScreen/AttributeBlockTimex.m; sourceTree = "<group>"; };
-		B6D30B3C0D16533C0036CC54 /* AttributeBlockTimexHiRes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AttributeBlockTimexHiRes.h; path = JWSpectrumScreen/AttributeBlockTimexHiRes.h; sourceTree = "<group>"; };
-		B6D30B3D0D16533C0036CC54 /* AttributeBlockTimexHiRes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AttributeBlockTimexHiRes.m; path = JWSpectrumScreen/AttributeBlockTimexHiRes.m; sourceTree = "<group>"; };
 		B6D30B3E0D16533C0036CC54 /* AttributeManager.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = AttributeManager.c; path = JWSpectrumScreen/AttributeManager.c; sourceTree = "<group>"; };
 		B6D30B3F0D16533C0036CC54 /* AttributeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AttributeManager.h; path = JWSpectrumScreen/AttributeManager.h; sourceTree = "<group>"; };
 		B6D30B4A0D1653510036CC54 /* ColourMacros.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ColourMacros.c; path = JWSpectrumScreen/ColourMacros.c; sourceTree = "<group>"; };
@@ -270,6 +260,7 @@
 				B6D30AE30D1627C90036CC54 /* libspectrum.h */,
 				B67F1E7A0E93A3AF00246616 /* memory.c */,
 				B6D30AF70D16288A0036CC54 /* microdrive.c */,
+				B6B682981F5D69EE00EEAD34 /* mmc.c */,
 				B6D30AF90D1628A10036CC54 /* plusd.c */,
 				B6E1F13A14F511DA00600EB0 /* pzx_read.c */,
 				B6D30AFB0D1628DB0036CC54 /* rzx.c */,
@@ -313,14 +304,6 @@
 		B6D30B350D1653180036CC54 /* JWSpectrumScreen */ = {
 			isa = PBXGroup;
 			children = (
-				B6D30B360D16533C0036CC54 /* AttributeBlock.h */,
-				B6D30B370D16533C0036CC54 /* AttributeBlock.m */,
-				B6D30B380D16533C0036CC54 /* AttributeBlockIterator.h */,
-				B6D30B390D16533C0036CC54 /* AttributeBlockIterator.m */,
-				B6D30B3A0D16533C0036CC54 /* AttributeBlockTimex.h */,
-				B6D30B3B0D16533C0036CC54 /* AttributeBlockTimex.m */,
-				B6D30B3C0D16533C0036CC54 /* AttributeBlockTimexHiRes.h */,
-				B6D30B3D0D16533C0036CC54 /* AttributeBlockTimexHiRes.m */,
 				B6D30B3E0D16533C0036CC54 /* AttributeManager.c */,
 				B6D30B3F0D16533C0036CC54 /* AttributeManager.h */,
 				B6D30B4A0D1653510036CC54 /* ColourMacros.c */,
@@ -453,6 +436,7 @@
 				B6D30B1B0D1629C20036CC54 /* tzx_read.c in Sources */,
 				B6D30B1C0D1629C20036CC54 /* tzx_write.c in Sources */,
 				B6D30B1D0D1629C20036CC54 /* warajevo_read.c in Sources */,
+				B6B682991F5D69EE00EEAD34 /* mmc.c in Sources */,
 				B6D30B1E0D1629C20036CC54 /* wav.c in Sources */,
 				B6D30B1F0D1629C20036CC54 /* z80.c in Sources */,
 				B6D30B200D1629C20036CC54 /* z80em.c in Sources */,
@@ -461,10 +445,6 @@
 				B6D30B270D162A130036CC54 /* ghash.c in Sources */,
 				B6D30B280D162A130036CC54 /* gslist.c in Sources */,
 				B6EF28521DE1C267001220D4 /* glock.c in Sources */,
-				B6D30B410D16533C0036CC54 /* AttributeBlock.m in Sources */,
-				B6D30B430D16533C0036CC54 /* AttributeBlockIterator.m in Sources */,
-				B6D30B450D16533C0036CC54 /* AttributeBlockTimex.m in Sources */,
-				B6D30B470D16533C0036CC54 /* AttributeBlockTimexHiRes.m in Sources */,
 				B6D30B480D16533C0036CC54 /* AttributeManager.c in Sources */,
 				B6D30B4C0D1653510036CC54 /* ColourMacros.c in Sources */,
 				B6D30B510D1653730036CC54 /* JWSpectrumScreen.m in Sources */,

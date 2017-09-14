@@ -35,8 +35,8 @@ typedef enum image_t {
 @interface LibspectrumSCRExtractor : NSObject {
 	NSString *filename;
 	NSData *scrData;
-        NSDictionary *scrOptions;
-        image_t image_type;
+	NSDictionary *scrOptions;
+	image_t image_type;
 	unsigned char *buffer;
 	size_t length;
 	libspectrum_id_t type;
@@ -44,6 +44,7 @@ typedef enum image_t {
 }
 - (id) initWithContentsOfURL:(NSURL*)aURL;
 
+- (libspectrum_id_t) type;
 - (libspectrum_class_t) class;
 - (NSData*) scrData;
 - (NSDictionary*) scrOptions;

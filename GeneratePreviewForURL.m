@@ -58,7 +58,8 @@ OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview,
   case TYPE_SCR:
     {
       JWSpectrumScreen* screen =
-        [[[JWSpectrumScreen alloc] initFromData:[speccyFile scrData]]
+        [[[JWSpectrumScreen alloc] initFromData:[speccyFile scrData]
+                                        mltHint:[speccyFile type] == LIBSPECTRUM_ID_SCREEN_MLT]
             autorelease];
       NSBitmapImageRep* imageRep = [[screen imageRep] retain];
       NSSize canvasSize = [screen canvasSize];

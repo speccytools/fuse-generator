@@ -34,33 +34,12 @@ typedef struct BitmapByteData {
 }
 
 // Internal utility method.
-- (BOOL)initialise;
+- (BOOL)initialise:(int)mltHint;
 
 // Create an instance from the passed data object.
 // Returns 'nil' if:
 //   The data pointed to is not the right size - see constants above.
-- (id)initFromData:(NSData*)scrData;
-
-// Create an instance from whatever the URL is pointing to.
-// Returns 'nil' if:
-//   The URL is invalid
-//   The data pointed to is not the right size - see constants above.
-- (id)initWithContentsOfURL:(NSURL*)url;
-
-// Create an instance based on the image representation and screen mode passed in.
-// Returns 'nil' if the representation is the wrong size. Only 256x192 for standard
-// and high colour screens, and either 512x192 or 512x384 for high res, are allowed.
-// If a 512x384 image rep is used, only the even scan lines are considered.
-//
-// The representaion should also be dithered and consist of legal colours as defined in
-// ColourMacros.h. This is not enforced (yet), but the results of using a non-conforming
-// imagerep are undefined.
-//
-// The final argument is ignored except for Timex high resolution images. 
-// It determines the colour scheme to be used. I think it's needed because
-// even if a bitmap contains the correct pair of colours, we can't tell which
-// is meant to be paper, and which is meant to be ink.
-- (id)initWithRepresentation:(NSBitmapImageRep*)rep mode:(ScreenMode)screenMode hiResMode:(TimexHiResMode)hiMode;
+- (id)initFromData:(NSData*)scrData mltHint:(int)mltHint;
 
 // Returns an NSBitmapImageRep* so you can draw the screen on a Mac.
 - (NSBitmapImageRep*)imageRep;
@@ -80,24 +59,9 @@ typedef struct BitmapByteData {
 // Paper and ink are undefined for Timex high res screens.
 - (BitmapByteData)bitmapByteDataAtX:(int)x y:(int)y;
 
-// As above, except it sets a bitmap byte.
-// Preconditions:
-//   As above and ink and paper must be in the range 0 <= col < 14.
-//   ie the Sepctrum colours BLACK to WHITE + BRIGHT BLUE to BRIGHT WHITE
-//   if you have an RGB colour defined in ColourMacros.h you can convert it:
-//		int spectrumColour = spectrumIndexFromRGB(macRGB);
-- (void)setBitmapByteData:(const BitmapByteData)data atX:(int)x y:(int)y;
-
 // Save the Spectrum screen data as a SCR file at the given path.
 // Returns 'YES' is the file was saved successfully.
 - (BOOL)saveScrFile:(NSURL*)url;
-
-// Return a dictionary. 
-// Valid keys are NSStrings 'Screen0', 'Screen1', 'Attributes', 'Out255'.
-// Values are NSData objects refering to the names screen sections.
-// Standard and Timex High Colour have non-nil 'Screen0' and 'Attributes' values.
-// Timex High Res has non-nil 'Screen0', 'Screen1' and 'Out255' values.
-- (NSDictionary*)screenSections;
 
 // Return 'canvasSize'.
 - (NSSize)canvasSize;

@@ -8,8 +8,6 @@
 
 #import "JWSpectrumScreen.h"
 #import "ColourMacros.h"
-#import "AttributeBlockIterator.h"
-#import "AttributeBlock.h"
 
 
 typedef struct BitmapOffsets {
@@ -24,7 +22,7 @@ BitmapOffsets bitmapOffsets(int x, int y, ScreenMode mode);
 
 @implementation JWSpectrumScreen
 
-- (BOOL)initialise
+- (BOOL)initialise:(int)mltHint
 {
 	if(zxScreen) {
 		if([zxScreen length] == SCREEN_STANDARD_BYTES) {
@@ -35,6 +33,9 @@ BitmapOffsets bitmapOffsets(int x, int y, ScreenMode mode);
 			canvasSize.width = SCREEN_STANDARD_WIDTH;
 			canvasSize.height = SCREEN_STANDARD_HEIGHT;
 			mode = ScreenModeTimexHiCol;
+            if(mltHint) {
+                mode = ScreenModeMLT;
+            }
 		} else if([zxScreen length] == SCREEN_TIMEX_HI_RES_BYTES) {
 			canvasSize.width = SCREEN_TIMEX_HIRES_WIDTH;
 			canvasSize.height = SCREEN_STANDARD_HEIGHT * 2;
@@ -50,116 +51,18 @@ BitmapOffsets bitmapOffsets(int x, int y, ScreenMode mode);
 	return NO;
 }
 
-- (id)initFromData:(NSData*)scrData
+- (id)initFromData:(NSData*)scrData mltHint:(int)mltHint
 {
 	self = [super init];
 	if(self) {
 		zxScreen = [[NSMutableData alloc] init];
 		[zxScreen setData:scrData];
 		
-		if( [self initialise] == NO ) {
+        if( [self initialise:mltHint] == NO ) {
 		NSLog( @"JWSpectrumScreen: initFromData : Some problem with the source scrData.\n" );
 			// Some problem with the source scrData.
 			[self release];
 			self = nil;
-		}
-	}
-	return self;
-}
-
-- (id)initWithContentsOfURL:(NSURL*)url
-{
-	self = [super init];
-	if(self) {
-		NSError* error = nil;
-		zxScreen = [[NSMutableData alloc] initWithContentsOfURL:url options:0 error:&error];
-		
-		if( [self initialise] == NO ) {
-			// Some error reading data from the URL.
-			[self release];
-			self = nil;
-		}
-	}
-	return self;
-}
-
-- (id)initWithRepresentation:(NSBitmapImageRep*)rep mode:(ScreenMode)screenMode hiResMode:(TimexHiResMode)hiResMode
-{
-	self = [super init];
-	if(self) {
-	
-		// Check that the imagerep is the correct size.
-		bool valid = true;
-		NSSize size = [rep size];
-		NSUInteger screenSize = 0;
-		
-		if(screenMode == ScreenModeSinclair || screenMode == ScreenModeTimexHiCol) {
-			if(size.width != SCREEN_STANDARD_WIDTH && size.height != SCREEN_STANDARD_HEIGHT) {
-				valid = false;
-			} else {
-				canvasSize.width = SCREEN_STANDARD_WIDTH;
-				canvasSize.height = SCREEN_STANDARD_HEIGHT;
-				if(screenMode == ScreenModeSinclair) {
-					screenSize = SCREEN_STANDARD_BYTES;
-				} else {
-					screenSize = SCREEN_TIMEX_HI_COL_BYTES;
-				}
-			}
-		} else if(screenMode == ScreenModeTimexHiRes) {
-			if(size.width != SCREEN_TIMEX_HIRES_WIDTH && 
-				(size.height != SCREEN_STANDARD_HEIGHT || size.height != SCREEN_STANDARD_HEIGHT * 2)) {
-				valid = false;
-			} else {
-				canvasSize.width = SCREEN_TIMEX_HIRES_WIDTH;
-				canvasSize.height = SCREEN_STANDARD_HEIGHT * 2;
-				screenSize = SCREEN_TIMEX_HI_RES_BYTES;
-				
-				// A double height imagerep must be resized to standard height.
-				// We do it in quite a hacky way :P.
-				if(size.height == SCREEN_STANDARD_HEIGHT * 2) {
-
-					NSBitmapImageRep* rep2 = [[rep copy] autorelease];					
-					unsigned char* bitmapData = [rep2 bitmapData];
-					NSInteger bytesPerRow = [rep2 bytesPerRow];
-					NSInteger bytesPerPlane = [rep2 bytesPerPlane];
-					NSInteger rows = bytesPerPlane / bytesPerRow;
-					assert(rows == SCREEN_STANDARD_HEIGHT * 2);				
-										
-					// Here's the promised hack. We just copy the even scan lines into the top half
-					// of the image rep. The block iterating code operates on the first 512x192 bytes
-					// and ignores what is left further down.
-					for(NSInteger i = 2; i < rows; i += 2) {
-						memcpy(bitmapData + bytesPerRow * i / 2, bitmapData + bytesPerRow * i, bytesPerRow);
-					}
-					// Use the hacked up imagerep from now on.
-					rep = rep2;
-				}
-			}
-		} else {
-			// WTF?
-			valid = false;
-			assert(0);
-		}
-		
-		if(valid) {
-			mode = screenMode;
-			AttributeBlockIterator* blockIt = [[[AttributeBlockIterator alloc] initWithBitmap:rep mode:screenMode] autorelease];
-			zxScreen = [[NSMutableData alloc] initWithLength:screenSize];
-			unsigned char* zxScreenBytes = [zxScreen mutableBytes];
-			
-			if(screenMode == ScreenModeTimexHiRes) {
-				[blockIt setHiResMode:hiResMode];
-				zxScreenBytes[screenSize - 1] = hiResMode;
-			}
-			
-			AttributeBlock* block = nil;
-			while((block = [blockIt nextBlock])) {
-				[block writeScreenOne:zxScreenBytes];
-				[block writeScreenTwo:zxScreenBytes + SCREEN_BITMAP_SIZE];
-			}
-		} else {
-			[self release];
-			self = 0;
 		}
 	}
 	return self;
@@ -219,7 +122,7 @@ BitmapOffsets bitmapOffsets(int x, int y, ScreenMode mode);
 	BitmapOffsets offsets = bitmapOffsets(x, y, mode);
 	data.bitmapByte = bitmapBytes[offsets.bitmapOffset];
 	
-	if(mode == ScreenModeSinclair || mode == ScreenModeTimexHiCol) {		
+	if(mode == ScreenModeSinclair || mode == ScreenModeTimexHiCol || mode == ScreenModeMLT) {
 
 		char attribute = bitmapBytes[offsets.attrOffset];
 		bool bright = attribute & (1 << 6);
@@ -285,43 +188,6 @@ BitmapOffsets bitmapOffsets(int x, int y, ScreenMode mode);
 	return data;
 }
 
-- (void)setBitmapByteData:(const BitmapByteData)data atX:(int)x y:(int)y
-{
-	// x must be byte aligned.
-	// x and y must be within the canvas.
-	assert(x % 8 == 0);
-	assert(x < canvasSize.width);
-	assert(y < canvasSize.height);
-	assert(data.ink >= 0 && data.ink < 14);
-	assert(data.paper >= 0 && data.paper < 14);
-	
-	BitmapOffsets offsets = bitmapOffsets(x, y, mode);
-	char* bitmapBytes = [zxScreen mutableBytes];
-	bitmapBytes[offsets.bitmapOffset] = data.bitmapByte;
-	
-	if(mode == ScreenModeSinclair || mode == ScreenModeTimexHiCol) {
-						
-		char attribute = 0;
-		int ink = data.ink;
-		int paper = data.paper;
-		
-		// Handle bright colours.
-		if(ink > 7 || paper > 7) {
-			if(ink > 7) {
-				ink -= 7;
-			}
-			if(paper > 7) {
-				paper -= 7;
-			}
-			attribute |= 1 << 6;
-		}
-		
-		attribute |= ink;
-		attribute |= paper << 3;
-		bitmapBytes[offsets.attrOffset] = attribute;
-	}
-}
-
 - (BOOL)saveScrFile:(NSURL*)url
 {
 	BOOL success = NO;
@@ -329,39 +195,6 @@ BitmapOffsets bitmapOffsets(int x, int y, ScreenMode mode);
 		success = [zxScreen writeToURL:url atomically:NO];
 	}
 	return success;
-}
-
-- (NSDictionary*)screenSections
-{
-	NSMutableDictionary* dictionary = [[[NSMutableDictionary alloc] initWithCapacity:4] autorelease];
-	NSData* screen0 = nil;
-	NSData* screen1 = nil;
-	NSData* attributes = nil;
-	NSData* out255 = nil;
-	
-	NSUInteger length = [zxScreen length];
-	if(length) {
-		screen0 = [[[NSData alloc] initWithBytes:[zxScreen bytes] length:SCREEN_BITMAP_SIZE] autorelease];
-		[dictionary setObject:screen0 forKey:@"Screen0"];
-		
-		if(mode == ScreenModeSinclair || mode == ScreenModeTimexHiCol) {
-			assert((mode == ScreenModeSinclair && length == SCREEN_STANDARD_BYTES) ||
-					(mode == ScreenModeTimexHiCol && length == SCREEN_TIMEX_HI_COL_BYTES));
-			attributes = [[[NSData alloc] initWithBytes:[zxScreen bytes] + SCREEN_BITMAP_SIZE length:length - SCREEN_BITMAP_SIZE] autorelease];
-			[dictionary setObject:attributes forKey:@"Attributes"];
-		} else if( mode == ScreenModeTimexHiRes) {
-			assert(length == SCREEN_TIMEX_HI_RES_BYTES);
-			screen1 = [[[NSData alloc] initWithBytes:[zxScreen bytes] + SCREEN_BITMAP_SIZE length:SCREEN_BITMAP_SIZE] autorelease];
-			out255 = [[[NSData alloc] initWithBytes:[zxScreen bytes] + 2 * SCREEN_BITMAP_SIZE length:1] autorelease];
-			[dictionary setObject:screen1 forKey:@"Screen1"];
-			[dictionary setObject:out255 forKey:@"Out255"];
-		} else {
-			// Wtf?
-			assert(0);
-		}
-	}
-
-	return dictionary;
 }
 
 - (NSSize)canvasSize
@@ -396,7 +229,7 @@ BitmapOffsets bitmapOffsets(int x, int y, ScreenMode mode)
 	int attrRowInThird = 0;
 	int rowInAttr = 0;
 	
-	if(mode == ScreenModeSinclair || mode == ScreenModeTimexHiCol) {		
+	if(mode == ScreenModeSinclair || mode == ScreenModeTimexHiCol || mode == ScreenModeMLT) {
 		if(mode == ScreenModeSinclair) {
 			attrY = y / 8;
 			attrRows = SCREEN_STANDARD_HEIGHT / 8;
@@ -415,7 +248,7 @@ BitmapOffsets bitmapOffsets(int x, int y, ScreenMode mode)
 		offsets.bitmapOffset += 0x100 * rowInAttr;
 		offsets.bitmapOffset += attrX;
 		
-		if(mode == ScreenModeSinclair) {
+		if(mode == ScreenModeSinclair || mode == ScreenModeMLT) {
 			offsets.attrOffset = SCREEN_BITMAP_SIZE + attrX + attrY * SCREEN_STANDARD_WIDTH / 8;
 		} else {
 			offsets.attrOffset = SCREEN_BITMAP_SIZE + offsets.bitmapOffset;
