@@ -77,7 +77,7 @@
 				"$(DERIVED_FILE_DIR)/tape_set.c",
 			);
 			runOncePerArchitecture = 0;
-			script = "perl ${SRCROOT}/libspectrum/tape_accessors.pl ${INPUT_FILE_PATH} > ${DERIVED_FILE_DIR}/${INPUT_FILE_BASE}.c\nperl ${SRCROOT}/libspectrum/tape_set.pl ${INPUT_FILE_PATH} > ${DERIVED_FILE_DIR}/tape_set.c\n";
+			script = "perl ${SRCROOT}/../libspectrum/tape_accessors.pl ${INPUT_FILE_PATH} > ${DERIVED_FILE_DIR}/${INPUT_FILE_BASE}.c\nperl ${SRCROOT}/../libspectrum/tape_set.pl ${INPUT_FILE_PATH} > ${DERIVED_FILE_DIR}/tape_set.c\n";
 		};
 		B6D30B310D162CCB0036CC54 /* PBXBuildRule */ = {
 			isa = PBXBuildRule;
@@ -91,7 +91,7 @@
 				"$(DERIVED_FILE_DIR)/$(INPUT_FILE_BASE).c",
 			);
 			runOncePerArchitecture = 0;
-			script = "perl ${SRCROOT}/libspectrum/accessor.pl ${INPUT_FILE_PATH} > ${DERIVED_FILE_DIR}/${INPUT_FILE_BASE}.c\n";
+			script = "perl ${SRCROOT}/../libspectrum/accessor.pl ${INPUT_FILE_PATH} > ${DERIVED_FILE_DIR}/${INPUT_FILE_BASE}.c\n";
 		};
 		B6D30B320D162CCB0036CC54 /* PBXBuildRule */ = {
 			isa = PBXBuildRule;
@@ -126,7 +126,7 @@
 		B67F1E780E93A39800246616 /* garray.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = garray.c; sourceTree = "<group>"; };
 		B67F1E7A0E93A3AF00246616 /* memory.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = memory.c; sourceTree = "<group>"; };
 		B6B682981F5D69EE00EEAD34 /* mmc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mmc.c; sourceTree = "<group>"; };
-		B6D30AE30D1627C90036CC54 /* libspectrum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libspectrum.h; path = ../libspectrum.h; sourceTree = "<group>"; };
+		B6D30AE30D1627C90036CC54 /* libspectrum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libspectrum.h; path = libspectrum.h; sourceTree = "<group>"; };
 		B6D30AE50D1627ED0036CC54 /* bzip2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bzip2.c; sourceTree = "<group>"; };
 		B6D30AE70D16280E0036CC54 /* creator.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = creator.c; sourceTree = "<group>"; };
 		B6D30AE80D16280E0036CC54 /* crypto.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = crypto.c; sourceTree = "<group>"; };
@@ -295,7 +295,7 @@
 				B64AC83A1D6B2D5C0024E7FE /* zip.h */,
 				B6D30B1A0D1629C20036CC54 /* zxs.c */,
 			);
-			path = libspectrum;
+			path = ../libspectrum;
 			sourceTree = "<group>";
 		};
 		B6D30B230D1629DC0036CC54 /* myglib */ = {
@@ -492,7 +492,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)",
-					"$(SRCROOT)/libspectrum",
+					"$(SRCROOT)/../libspectrum",
 					"$(SRCROOT)/../libgcrypt/libgcrypt/src",
 					"$(SRCROOT)/../libgcrypt/libgpg-error/src",
 				);
@@ -529,7 +529,7 @@
 				GCC_WARN_UNUSED_VALUE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)",
-					"$(SRCROOT)/libspectrum",
+					"$(SRCROOT)/../libspectrum",
 					"$(SRCROOT)/../libgcrypt/libgcrypt/src",
 					"$(SRCROOT)/../libgcrypt/libgpg-error/src",
 				);
@@ -656,7 +656,7 @@
 				GCC_WARN_UNUSED_VALUE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)",
-					"$(SRCROOT)/libspectrum",
+					"$(SRCROOT)/../libspectrum",
 					"$(SRCROOT)/../libgcrypt/libgcrypt/src",
 					"$(SRCROOT)/../libgcrypt/libgpg-error/src",
 				);
