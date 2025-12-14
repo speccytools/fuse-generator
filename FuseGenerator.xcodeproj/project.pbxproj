@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 47;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -69,34 +69,42 @@
 			compilerSpec = com.apple.compilers.proxy.script;
 			filePatterns = "*ape_accessors.txt";
 			fileType = pattern.proxy;
+			inputFiles = (
+			);
 			isEditable = 1;
 			outputFiles = (
 				"$(DERIVED_FILE_DIR)/$(INPUT_FILE_BASE).c",
 				"$(DERIVED_FILE_DIR)/tape_set.c",
 			);
-			script = "perl ${SRCROOT}/libspectrum/tape_accessors.pl ${INPUT_FILE_PATH} > ${DERIVED_FILE_DIR}/${INPUT_FILE_BASE}.c\nperl ${SRCROOT}/libspectrum/tape_set.pl ${INPUT_FILE_PATH} > ${DERIVED_FILE_DIR}/tape_set.c";
+			runOncePerArchitecture = 0;
+			script = "perl ${SRCROOT}/libspectrum/tape_accessors.pl ${INPUT_FILE_PATH} > ${DERIVED_FILE_DIR}/${INPUT_FILE_BASE}.c\nperl ${SRCROOT}/libspectrum/tape_set.pl ${INPUT_FILE_PATH} > ${DERIVED_FILE_DIR}/tape_set.c\n";
 		};
 		B6D30B310D162CCB0036CC54 /* PBXBuildRule */ = {
 			isa = PBXBuildRule;
 			compilerSpec = com.apple.compilers.proxy.script;
 			filePatterns = "*nap_accessors.txt";
 			fileType = pattern.proxy;
+			inputFiles = (
+			);
 			isEditable = 1;
 			outputFiles = (
 				"$(DERIVED_FILE_DIR)/$(INPUT_FILE_BASE).c",
 			);
-			script = "perl ${SRCROOT}/libspectrum/accessor.pl ${INPUT_FILE_PATH} > ${DERIVED_FILE_DIR}/${INPUT_FILE_BASE}.c";
+			runOncePerArchitecture = 0;
+			script = "perl ${SRCROOT}/libspectrum/accessor.pl ${INPUT_FILE_PATH} > ${DERIVED_FILE_DIR}/${INPUT_FILE_BASE}.c\n";
 		};
 		B6D30B320D162CCB0036CC54 /* PBXBuildRule */ = {
 			isa = PBXBuildRule;
 			compilerSpec = com.apple.compilers.proxy.script;
 			filePatterns = "*ibspectrum.h.in";
 			fileType = pattern.proxy;
+			inputFiles = (
+			);
 			isEditable = 1;
 			outputFiles = (
 				"${SRCROOT}/libspectrum.h",
 			);
-			script = "perl -p ${SRCROOT}/generate.pl ${INPUT_FILE_PATH} > ${SRCROOT}/libspectrum.h";
+			script = "perl -p ${SRCROOT}/generate.pl ${INPUT_FILE_PATH} > ${SRCROOT}/libspectrum.h\n";
 		};
 /* End PBXBuildRule section */
 
@@ -473,20 +481,32 @@
 		2CA3261F0896AD4900168862 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 48UV5KV3FB;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)",
+					"$(SRCROOT)/libspectrum",
+					"$(SRCROOT)/../libgcrypt/libgcrypt/src",
+					"$(SRCROOT)/../libgcrypt/libgpg-error/src",
+				);
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = /Library/QuickLook;
 				LLVM_LTO = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				OTHER_LDFLAGS = (
 					"-lbz2",
 					"-lz",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.sourceforge.projects.fuse-emulator.quicklookgenerator";
+				PRODUCT_BUNDLE_IDENTIFIER = fusex.quicklookgenerator;
 				PRODUCT_NAME = FuseGenerator;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				WRAPPER_EXTENSION = qlgenerator;
 				ZERO_LINK = YES;
 			};
@@ -495,23 +515,35 @@
 		2CA326200896AD4900168862 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 48UV5KV3FB;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
 				GCC_WARN_MISSING_PARENTHESES = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VALUE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)",
+					"$(SRCROOT)/libspectrum",
+					"$(SRCROOT)/../libgcrypt/libgcrypt/src",
+					"$(SRCROOT)/../libgcrypt/libgpg-error/src",
+				);
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = /Library/QuickLook;
 				LLVM_LTO = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				OTHER_LDFLAGS = (
 					"-lbz2",
 					"-lz",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.sourceforge.projects.fuse-emulator.quicklookgenerator";
+				PRODUCT_BUNDLE_IDENTIFIER = fusex.quicklookgenerator;
 				PRODUCT_NAME = FuseGenerator;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
