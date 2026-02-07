@@ -126,7 +126,7 @@
 		B67F1E780E93A39800246616 /* garray.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = garray.c; sourceTree = "<group>"; };
 		B67F1E7A0E93A3AF00246616 /* memory.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = memory.c; sourceTree = "<group>"; };
 		B6B682981F5D69EE00EEAD34 /* mmc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mmc.c; sourceTree = "<group>"; };
-		B6D30AE30D1627C90036CC54 /* libspectrum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libspectrum.h; path = libspectrum.h; sourceTree = "<group>"; };
+		B6D30AE30D1627C90036CC54 /* libspectrum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libspectrum.h; sourceTree = "<group>"; };
 		B6D30AE50D1627ED0036CC54 /* bzip2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bzip2.c; sourceTree = "<group>"; };
 		B6D30AE70D16280E0036CC54 /* creator.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = creator.c; sourceTree = "<group>"; };
 		B6D30AE80D16280E0036CC54 /* crypto.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = crypto.c; sourceTree = "<group>"; };
@@ -230,7 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				B6D30B350D1653180036CC54 /* JWSpectrumScreen */,
-				B6D30AE20D16278E0036CC54 /* libspectrum */,
+				B6D30AE20D16278E0036CC54 /* ../libspectrum */,
 				61E3BCFA0870B4F2002186A0 /* GenerateThumbnailForURL.m */,
 				2C05A19B06CAA52B00D84F6F /* GeneratePreviewForURL.m */,
 				08FB77B6FE84183AC02AAC07 /* main.c */,
@@ -248,7 +248,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B6D30AE20D16278E0036CC54 /* libspectrum */ = {
+		B6D30AE20D16278E0036CC54 /* ../libspectrum */ = {
 			isa = PBXGroup;
 			children = (
 				B6D30B230D1629DC0036CC54 /* myglib */,
@@ -482,11 +482,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Mac Developer";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = 48UV5KV3FB;
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = "";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
@@ -500,6 +501,7 @@
 				INSTALL_PATH = /Library/QuickLook;
 				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				OTHER_CODE_SIGN_FLAGS = "--deep";
 				OTHER_LDFLAGS = (
 					"-lbz2",
 					"-lz",
@@ -516,11 +518,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Mac Developer";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 48UV5KV3FB;
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
@@ -537,6 +540,7 @@
 				INSTALL_PATH = /Library/QuickLook;
 				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				OTHER_CODE_SIGN_FLAGS = "--deep";
 				OTHER_LDFLAGS = (
 					"-lbz2",
 					"-lz",
@@ -643,11 +647,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Mac Developer";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 48UV5KV3FB;
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
@@ -664,6 +669,7 @@
 				INSTALL_PATH = /Library/QuickLook;
 				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				OTHER_CODE_SIGN_FLAGS = "--deep";
 				OTHER_LDFLAGS = (
 					"-lbz2",
 					"-lz",
