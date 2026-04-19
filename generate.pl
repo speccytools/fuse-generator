@@ -3,6 +3,10 @@ if( /LIBSPECTRUM_DEFINE_TYPES/ ) {
   $_ = << "CODE";
 #include <stdint.h>
 
+#ifndef	WIN32_DLL
+#define	WIN32_DLL
+#endif
+
 typedef  uint8_t libspectrum_byte;
 typedef   int8_t libspectrum_signed_byte;
 typedef uint16_t libspectrum_word;
@@ -209,7 +213,6 @@ libspectrum_zlib_inflate( const libspectrum_byte *gzptr, size_t gzlength,
 WIN32_DLL libspectrum_error
 libspectrum_zlib_compress( const libspectrum_byte *data, size_t length,
 			   libspectrum_byte **gzptr, size_t *gzlength );
-
 CODE
 }
 
@@ -222,10 +225,14 @@ CODE
 
 if( /LIBSPECTRUM_SNAP_ACCESSORS/ ) {
 
-  open( DATAFILE, '<' . "$ENV{SRCROOT}/libspectrum/snap_accessors.txt" ) or die "Couldn't open `$ENV{SRCROOT}/libspectrum/snap_accessors.txt': $!";
+  open( DATAFILE, '<' . "$ENV{LIBSPECTRUM_SRCDIR}/snap_accessors.txt" ) or die "Couldn't open `$ENV{LIBSPECTRUM_SRCDIR}/snap_accessors.txt': $!";
 
   $_ = '';
   while( <DATAFILE> ) {
+
+		# Remove comments and blank lines
+		s/#.*//;
+		s/\/\*.*?\*\///gs;
 
     next if /^\s*$/; next if /^\s*#/;
 
@@ -258,14 +265,15 @@ CODE
 
 if( /LIBSPECTRUM_TAPE_ACCESSORS/ ) {
 
-    open( DATAFILE, '<' . "$ENV{SRCROOT}/libspectrum/tape_accessors.txt" )
-	or die "Couldn't open `$ENV{SRCROOT}/libspectrum/tape_accessors.txt': $!";
+    open( DATAFILE, '<' . "$ENV{LIBSPECTRUM_SRCDIR}/tape_accessors.txt" )
+	or die "Couldn't open `$ENV{LIBSPECTRUM_SRCDIR}/tape_accessors.txt': $!";
 
     $_ = '';
     while( <DATAFILE> ) {
 
 	# Remove comments and blank lines
 	s/#.*//;
+	s/\/\*.*?\*\///gs;
 	next if /^\s*$/;
 
 	# Skip which block types each accessor applies to
@@ -297,5 +305,5 @@ CODE
 	}
     }
 
-    close DATAFILE or die "Couldn't close `$ENV{SRCROOT}/libspectrum/tape_accessors.txt': $!";
+    close DATAFILE or die "Couldn't close `$ENV{LIBSPECTRUM_SRCDIR}/tape_accessors.txt': $!";
 }

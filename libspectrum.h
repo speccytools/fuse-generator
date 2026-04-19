@@ -73,7 +73,6 @@ extern "C" {
 #define DEPRECATED
 #endif                          /* #ifdef __GNUC__ */
 
-#include <gcrypt.h>
 
 /* Standard typedefs */
 #include <stdint.h>
@@ -291,15 +290,6 @@ libspectrum_zlib_inflate( const libspectrum_byte *gzptr, size_t gzlength,
 WIN32_DLL libspectrum_error
 libspectrum_zlib_compress( const libspectrum_byte *data, size_t length,
 			   libspectrum_byte **gzptr, size_t *gzlength );
-
-
-/* we support files compressed with bz2 */
-#define LIBSPECTRUM_SUPPORTS_BZ2_COMPRESSION    (1)
-
-
-/* we support wav files */
-#define LIBSPECTRUM_SUPPORTS_AUDIOFILE  (1)
-
 
 /* Initialisation */
 
@@ -1515,8 +1505,7 @@ typedef struct libspectrum_signature {
   /* Where in the buffer is the signed data? */
   const libspectrum_byte *start; ptrdiff_t length;
 
-  /* The DSA signature parameters 'r' and 's' */
-  gcry_mpi_t r, s;
+/* Signature parameters not stored as libgcrypt is not present */
 
 } libspectrum_signature;
 
