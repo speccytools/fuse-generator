@@ -1,9 +1,8 @@
 /* FusePreviewProvider.m: Quick Look preview extension for Spectrum files.
 
-   Extracts a screen image from a libspectrum-supported file and hands it
-   back to the Quick Look host as a bitmap. Ports the TYPE_SCR / TYPE_IMAGEIO
-   paths from the legacy CFPlugIn-based GeneratePreviewForURL.m, including
-   the intentional tape-file skip.
+   Implements the view-controller-based Quick Look preview for the
+   com.apple.quicklook.preview extension point. Configures an NSImageView
+   with the Spectrum screen extracted from a libspectrum-supported file.
 
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -13,26 +12,44 @@
 
 #import "FusePreviewProvider.h"
 
-#import <AppKit/AppKit.h>
+#import <ImageIO/ImageIO.h>
 
 #import "JWSpectrumScreen.h"
 #import "LibspectrumSCRExtractor.h"
 
+@interface FusePreviewProvider ()
+@property (nonatomic, retain) NSImageView *imageView;
+@end
+
 @implementation FusePreviewProvider
 
-- (void)providePreviewForFileRequest:(QLFilePreviewRequest *)request
-                   completionHandler:(void (^)(QLPreviewReply *, NSError *))handler
+@synthesize imageView;
+
+- (void)loadView
 {
+  NSRect frame = NSMakeRect( 0.0, 0.0, 800.0, 600.0 );
+  NSView *container = [[[NSView alloc] initWithFrame:frame] autorelease];
+  container.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+
+  imageView = [[NSImageView alloc] initWithFrame:frame];
+  imageView.imageScaling = NSImageScaleProportionallyUpOrDown;
+  imageView.imageFrameStyle = NSImageFrameNone;
+  imageView.imageAlignment = NSImageAlignCenter;
+  imageView.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+  [container addSubview:imageView];
+
+  self.view = container;
+}
+
+- (void)preparePreviewOfFileAtURL:(NSURL *)url
+                completionHandler:(void (^)(NSError * _Nullable))handler
+{
+  (void)[self view];
+
   LibspectrumSCRExtractor *speccyFile =
-    [[[LibspectrumSCRExtractor alloc] initWithContentsOfURL:request.fileURL] autorelease];
+    [[[LibspectrumSCRExtractor alloc] initWithContentsOfURL:url] autorelease];
 
-  /* No preview for tapes: these are going to have inlays etc. which are more
-     like album art in mp3s than file previews. Preserves legacy behaviour. */
-  if( [speccyFile class] == LIBSPECTRUM_CLASS_TAPE ) {
-    handler( nil, nil );
-    return;
-  }
-
+  NSImage *image = nil;
   switch( [speccyFile image_type] ) {
   case TYPE_SCR:
     {
@@ -40,80 +57,48 @@
         [[[JWSpectrumScreen alloc] initFromData:[speccyFile scrData]
                                         mltHint:[speccyFile type] == LIBSPECTRUM_ID_SCREEN_MLT]
            autorelease];
-      NSBitmapImageRep *imageRep = [[screen imageRep] retain];
-      NSSize canvasSize = [screen canvasSize];
-
-      QLPreviewReply *reply = [[[QLPreviewReply alloc]
-        initWithContextSize:canvasSize
-                   isBitmap:YES
-               drawingBlock:^BOOL( CGContextRef context,
-                                   QLPreviewReply *_Nonnull aReply,
-                                   NSError *__autoreleasing *error ) {
-          NSGraphicsContext *gc =
-            [NSGraphicsContext graphicsContextWithCGContext:context flipped:YES];
-          [NSGraphicsContext saveGraphicsState];
-          [NSGraphicsContext setCurrentContext:gc];
-
-          NSImage *image =
-            [[[NSImage alloc] initWithSize:canvasSize] autorelease];
-          [image addRepresentation:imageRep];
-          NSRect rect = NSMakeRect( 0.0, 0.0, canvasSize.width,
-                                    canvasSize.height );
-          [image drawAtPoint:NSZeroPoint
-                    fromRect:rect
-                   operation:NSCompositingOperationSourceOver
-                    fraction:1.0];
-
-          [NSGraphicsContext restoreGraphicsState];
-          [imageRep release];
-          return YES;
-        }] autorelease];
-
-      handler( reply, nil );
-      return;
+      NSBitmapImageRep *imageRep = [screen imageRep];
+      if( imageRep ) {
+        image = [[[NSImage alloc] initWithSize:[screen canvasSize]] autorelease];
+        [image addRepresentation:imageRep];
+      }
+      break;
     }
   case TYPE_IMAGEIO:
     {
-      NSImage *image =
-        [[[NSImage alloc] initWithData:[speccyFile scrData]] autorelease];
-      if( !image || NSEqualSizes( image.size, NSZeroSize ) ) {
-        handler( nil, nil );
-        return;
+      CGImageSourceRef src =
+        CGImageSourceCreateWithData( (CFDataRef)[speccyFile scrData],
+                                     (CFDictionaryRef)[speccyFile scrOptions] );
+      if( src ) {
+        CGImageRef cgimg = CGImageSourceCreateImageAtIndex( src, 0, NULL );
+        CFRelease( src );
+        if( cgimg ) {
+          image = [[[NSImage alloc] initWithCGImage:cgimg
+                                               size:NSZeroSize] autorelease];
+          CGImageRelease( cgimg );
+        }
       }
-      NSSize canvasSize = image.size;
-      [image retain];
-
-      QLPreviewReply *reply = [[[QLPreviewReply alloc]
-        initWithContextSize:canvasSize
-                   isBitmap:YES
-               drawingBlock:^BOOL( CGContextRef context,
-                                   QLPreviewReply *_Nonnull aReply,
-                                   NSError *__autoreleasing *error ) {
-          NSGraphicsContext *gc =
-            [NSGraphicsContext graphicsContextWithCGContext:context flipped:YES];
-          [NSGraphicsContext saveGraphicsState];
-          [NSGraphicsContext setCurrentContext:gc];
-
-          NSRect rect = NSMakeRect( 0.0, 0.0, canvasSize.width,
-                                    canvasSize.height );
-          [image drawAtPoint:NSZeroPoint
-                    fromRect:rect
-                   operation:NSCompositingOperationSourceOver
-                    fraction:1.0];
-
-          [NSGraphicsContext restoreGraphicsState];
-          [image release];
-          return YES;
-        }] autorelease];
-
-      handler( reply, nil );
-      return;
+      break;
     }
   default:
     break;
   }
 
-  handler( nil, nil );
+  if( !image ) {
+    handler( [NSError errorWithDomain:NSCocoaErrorDomain
+                                 code:NSFileReadCorruptFileError
+                             userInfo:nil] );
+    return;
+  }
+
+  self.imageView.image = image;
+  handler( nil );
+}
+
+- (void)dealloc
+{
+  [imageView release];
+  [super dealloc];
 }
 
 @end

@@ -11,8 +11,8 @@
    GNU General Public License for more details.
 */
 
-#import <QuickLook/QuickLook.h>
-#import <QuickLookUI/QuickLookUI.h>
+#import <Cocoa/Cocoa.h>
+#import <Quartz/Quartz.h>
 
-@interface FusePreviewProvider : QLPreviewProvider <QLPreviewingController>
+@interface FusePreviewProvider : NSViewController <QLPreviewingController>
 @end
