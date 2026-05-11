@@ -14,6 +14,8 @@
 		040F6DAFEFDA0EC4F279F0B8 /* dck.c in Sources */ = {isa = PBXBuildFile; fileRef = FD2C927945BB49FF15095B80 /* dck.c */; };
 		05111A5DD95F2F935C17702B /* warajevo_read.c in Sources */ = {isa = PBXBuildFile; fileRef = 74737076FF155D7796FBB613 /* warajevo_read.c */; };
 		0ACA34808472CC2A0311B1C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D63D9E3D2F7792AAC4FD5817 /* Foundation.framework */; };
+		FE9912080000000000000008 /* AudioToolbox.framework in Frameworks (Preview) */ = {isa = PBXBuildFile; fileRef = FE9912090000000000000009 /* AudioToolbox.framework */; };
+		FE99120A000000000000000A /* AudioToolbox.framework in Frameworks (Thumbnail) */ = {isa = PBXBuildFile; fileRef = FE9912090000000000000009 /* AudioToolbox.framework */; };
 		0AEC5DF3B5BFCD49EA3BB313 /* buffer.c in Sources */ = {isa = PBXBuildFile; fileRef = A0A4DA34B6BF145D5AD65973 /* buffer.c */; };
 		0C86C21E445EF98C42DCD90A /* szx.c in Sources */ = {isa = PBXBuildFile; fileRef = C48DB51C5B52BCABD30CDB72 /* szx.c */; };
 		11C0F1392B6F5826BB09B29D /* FusePreviewProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 1023F19C235509902ED6A45D /* FusePreviewProvider.m */; };
@@ -71,6 +73,10 @@
 		9869292DD8DDE400FA55D747 /* buffer.c in Sources */ = {isa = PBXBuildFile; fileRef = A0A4DA34B6BF145D5AD65973 /* buffer.c */; };
 		9B14039F55A4B2D4A2153260 /* z80em.c in Sources */ = {isa = PBXBuildFile; fileRef = DB704D5FE1A0F5F09A8BD4D7 /* z80em.c */; };
 		9E1F88D4525152BE4E6074BD /* wav.c in Sources */ = {isa = PBXBuildFile; fileRef = D1A4C0F5E3229EE9BF55F870 /* wav.c */; };
+		FE9912010000000000000001 /* dsnap.c in Sources (Preview) */ = {isa = PBXBuildFile; fileRef = FE9912020000000000000002 /* dsnap.c */; };
+		FE9912030000000000000003 /* wav_macos.c in Sources (Preview) */ = {isa = PBXBuildFile; fileRef = FE9912040000000000000004 /* wav_macos.c */; };
+		FE9912050000000000000005 /* dsnap.c in Sources (Thumbnail) */ = {isa = PBXBuildFile; fileRef = FE9912020000000000000002 /* dsnap.c */; };
+		FE9912060000000000000006 /* wav_macos.c in Sources (Thumbnail) */ = {isa = PBXBuildFile; fileRef = FE9912040000000000000004 /* wav_macos.c */; };
 		A23A5B4D2C887F9C44774BC9 /* snp.c in Sources */ = {isa = PBXBuildFile; fileRef = 5731592D3B5FEA1F4342C4D1 /* snp.c */; };
 		A2DED55BD63EA11AE3F8AB42 /* sp.c in Sources */ = {isa = PBXBuildFile; fileRef = CB44E0C17114121F92DB2217 /* sp.c */; };
 		A3D9FFD1CD32DA9D463F74BF /* bzip2.c in Sources */ = {isa = PBXBuildFile; fileRef = BA3B71D4516FB16D3A489C72 /* bzip2.c */; };
@@ -223,6 +229,10 @@
 		CB44E0C17114121F92DB2217 /* sp.c */ = {isa = PBXFileReference; includeInIndex = 1; path = sp.c; sourceTree = "<group>"; };
 		CB6CE29BFBBE30D8C0FD7786 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		D1A4C0F5E3229EE9BF55F870 /* wav.c */ = {isa = PBXFileReference; includeInIndex = 1; path = wav.c; sourceTree = "<group>"; };
+		FE9912020000000000000002 /* dsnap.c */ = {isa = PBXFileReference; includeInIndex = 1; path = dsnap.c; sourceTree = "<group>"; };
+		FE9912040000000000000004 /* wav_macos.c */ = {isa = PBXFileReference; includeInIndex = 1; path = wav_macos.c; sourceTree = "<group>"; };
+		FE9912070000000000000007 /* wav_internals.h */ = {isa = PBXFileReference; includeInIndex = 1; path = wav_internals.h; sourceTree = "<group>"; };
+		FE9912090000000000000009 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = /System/Library/Frameworks/AudioToolbox.framework; sourceTree = "<absolute>"; };
 		D1E36E077C2F1F9F74D9419C /* zip.c */ = {isa = PBXFileReference; includeInIndex = 1; path = zip.c; sourceTree = "<group>"; };
 		D63D9E3D2F7792AAC4FD5817 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D76632653EA398556A0D9F06 /* gslist.c */ = {isa = PBXFileReference; includeInIndex = 1; path = gslist.c; sourceTree = "<group>"; };
@@ -250,6 +260,7 @@
 				33440AB2918F83C59B3B9BF2 /* ImageIO.framework in Frameworks */,
 				CAE1BAE9A1DEEF9C341400EE /* QuickLook.framework in Frameworks */,
 				BF852936184EFD8968C92E25 /* QuickLookUI.framework in Frameworks */,
+				FE9912080000000000000008 /* AudioToolbox.framework in Frameworks (Preview) */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +276,7 @@
 				26EAF44067087DF89B325A2A /* Foundation.framework in Frameworks */,
 				AF34EA43646F0089DD47E3F1 /* ImageIO.framework in Frameworks */,
 				DCD004CE8D0AAB92A33D3112 /* QuickLookThumbnailing.framework in Frameworks */,
+				FE99120A000000000000000A /* AudioToolbox.framework in Frameworks (Thumbnail) */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +374,9 @@
 				3042155AAF3AD1C95D733713 /* utilities.c */,
 				74737076FF155D7796FBB613 /* warajevo_read.c */,
 				D1A4C0F5E3229EE9BF55F870 /* wav.c */,
+				FE9912020000000000000002 /* dsnap.c */,
+				FE9912040000000000000004 /* wav_macos.c */,
+				FE9912070000000000000007 /* wav_internals.h */,
 				F681EB3287BA2EF4A05D0ACA /* z80.c */,
 				DB704D5FE1A0F5F09A8BD4D7 /* z80em.c */,
 				D1E36E077C2F1F9F74D9419C /* zip.c */,
@@ -550,6 +565,8 @@
 				A4B1619A233951307D5C8DFA /* utilities.c in Sources */,
 				961C21874FFE9F716164B3D2 /* warajevo_read.c in Sources */,
 				9E1F88D4525152BE4E6074BD /* wav.c in Sources */,
+				FE9912010000000000000001 /* dsnap.c in Sources (Preview) */,
+				FE9912030000000000000003 /* wav_macos.c in Sources (Preview) */,
 				675B0F1FCC572327907F8EC0 /* z80.c in Sources */,
 				9B14039F55A4B2D4A2153260 /* z80em.c in Sources */,
 				23B00CE803A2CD7738144297 /* zip.c in Sources */,
@@ -602,6 +619,8 @@
 				224963DF6C1E88F1978BE079 /* utilities.c in Sources */,
 				05111A5DD95F2F935C17702B /* warajevo_read.c in Sources */,
 				C9826EDBBC1E2B702092F4E2 /* wav.c in Sources */,
+				FE9912050000000000000005 /* dsnap.c in Sources (Thumbnail) */,
+				FE9912060000000000000006 /* wav_macos.c in Sources (Thumbnail) */,
 				B9A28D05EC00121EF374068E /* z80.c in Sources */,
 				4D240E67DA18DB58C448932D /* z80em.c in Sources */,
 				81F9CE9F7AF285647AB8008B /* zip.c in Sources */,
