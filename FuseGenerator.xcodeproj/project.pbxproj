@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,8 +14,6 @@
 		040F6DAFEFDA0EC4F279F0B8 /* dck.c in Sources */ = {isa = PBXBuildFile; fileRef = FD2C927945BB49FF15095B80 /* dck.c */; };
 		05111A5DD95F2F935C17702B /* warajevo_read.c in Sources */ = {isa = PBXBuildFile; fileRef = 74737076FF155D7796FBB613 /* warajevo_read.c */; };
 		0ACA34808472CC2A0311B1C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D63D9E3D2F7792AAC4FD5817 /* Foundation.framework */; };
-		FE9912080000000000000008 /* AudioToolbox.framework in Frameworks (Preview) */ = {isa = PBXBuildFile; fileRef = FE9912090000000000000009 /* AudioToolbox.framework */; };
-		FE99120A000000000000000A /* AudioToolbox.framework in Frameworks (Thumbnail) */ = {isa = PBXBuildFile; fileRef = FE9912090000000000000009 /* AudioToolbox.framework */; };
 		0AEC5DF3B5BFCD49EA3BB313 /* buffer.c in Sources */ = {isa = PBXBuildFile; fileRef = A0A4DA34B6BF145D5AD65973 /* buffer.c */; };
 		0C86C21E445EF98C42DCD90A /* szx.c in Sources */ = {isa = PBXBuildFile; fileRef = C48DB51C5B52BCABD30CDB72 /* szx.c */; };
 		11C0F1392B6F5826BB09B29D /* FusePreviewProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 1023F19C235509902ED6A45D /* FusePreviewProvider.m */; };
@@ -73,10 +71,6 @@
 		9869292DD8DDE400FA55D747 /* buffer.c in Sources */ = {isa = PBXBuildFile; fileRef = A0A4DA34B6BF145D5AD65973 /* buffer.c */; };
 		9B14039F55A4B2D4A2153260 /* z80em.c in Sources */ = {isa = PBXBuildFile; fileRef = DB704D5FE1A0F5F09A8BD4D7 /* z80em.c */; };
 		9E1F88D4525152BE4E6074BD /* wav.c in Sources */ = {isa = PBXBuildFile; fileRef = D1A4C0F5E3229EE9BF55F870 /* wav.c */; };
-		FE9912010000000000000001 /* dsnap.c in Sources (Preview) */ = {isa = PBXBuildFile; fileRef = FE9912020000000000000002 /* dsnap.c */; };
-		FE9912030000000000000003 /* wav_macos.c in Sources (Preview) */ = {isa = PBXBuildFile; fileRef = FE9912040000000000000004 /* wav_macos.c */; };
-		FE9912050000000000000005 /* dsnap.c in Sources (Thumbnail) */ = {isa = PBXBuildFile; fileRef = FE9912020000000000000002 /* dsnap.c */; };
-		FE9912060000000000000006 /* wav_macos.c in Sources (Thumbnail) */ = {isa = PBXBuildFile; fileRef = FE9912040000000000000004 /* wav_macos.c */; };
 		A23A5B4D2C887F9C44774BC9 /* snp.c in Sources */ = {isa = PBXBuildFile; fileRef = 5731592D3B5FEA1F4342C4D1 /* snp.c */; };
 		A2DED55BD63EA11AE3F8AB42 /* sp.c in Sources */ = {isa = PBXBuildFile; fileRef = CB44E0C17114121F92DB2217 /* sp.c */; };
 		A3D9FFD1CD32DA9D463F74BF /* bzip2.c in Sources */ = {isa = PBXBuildFile; fileRef = BA3B71D4516FB16D3A489C72 /* bzip2.c */; };
@@ -119,6 +113,12 @@
 		EFBD0093AF69A2FB90797281 /* LibspectrumSCRExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A51B336F1E452B905750E9 /* LibspectrumSCRExtractor.m */; };
 		F37A271D78B59C5C90FDEF6E /* ide.c in Sources */ = {isa = PBXBuildFile; fileRef = A22922693A9D8EA033AA6345 /* ide.c */; };
 		F76C4AD8161040219D6DFA35 /* garray.c in Sources */ = {isa = PBXBuildFile; fileRef = A1DB19E5C7C840F8BC06AE55 /* garray.c */; };
+		FE9912010000000000000001 /* dsnap.c in Sources */ = {isa = PBXBuildFile; fileRef = FE9912020000000000000002 /* dsnap.c */; };
+		FE9912030000000000000003 /* wav_macos.c in Sources */ = {isa = PBXBuildFile; fileRef = FE9912040000000000000004 /* wav_macos.c */; };
+		FE9912050000000000000005 /* dsnap.c in Sources */ = {isa = PBXBuildFile; fileRef = FE9912020000000000000002 /* dsnap.c */; };
+		FE9912060000000000000006 /* wav_macos.c in Sources */ = {isa = PBXBuildFile; fileRef = FE9912040000000000000004 /* wav_macos.c */; };
+		FE9912080000000000000008 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE9912090000000000000009 /* AudioToolbox.framework */; };
+		FE99120A000000000000000A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE9912090000000000000009 /* AudioToolbox.framework */; };
 		FF053FBBD980F5881598E913 /* gslist.c in Sources */ = {isa = PBXBuildFile; fileRef = D76632653EA398556A0D9F06 /* gslist.c */; };
 /* End PBXBuildFile section */
 
@@ -128,6 +128,8 @@
 			compilerSpec = com.apple.compilers.proxy.script;
 			filePatterns = "*nap_accessors.txt";
 			fileType = pattern.proxy;
+			inputFiles = (
+			);
 			isEditable = 1;
 			outputFiles = (
 				"$(DERIVED_FILE_DIR)/$(INPUT_FILE_BASE).c",
@@ -140,6 +142,8 @@
 			compilerSpec = com.apple.compilers.proxy.script;
 			filePatterns = "*ape_accessors.txt";
 			fileType = pattern.proxy;
+			inputFiles = (
+			);
 			isEditable = 1;
 			outputFiles = (
 				"$(DERIVED_FILE_DIR)/$(INPUT_FILE_BASE).c",
@@ -153,6 +157,8 @@
 			compilerSpec = com.apple.compilers.proxy.script;
 			filePatterns = "*ibspectrum.h.in";
 			fileType = pattern.proxy;
+			inputFiles = (
+			);
 			isEditable = 1;
 			outputFiles = (
 				"${SRCROOT}/libspectrum.h",
@@ -163,86 +169,86 @@
 /* End PBXBuildRule section */
 
 /* Begin PBXFileReference section */
-		06F6CF12B3976FDAED7F0C5E /* tape_accessors.txt */ = {isa = PBXFileReference; includeInIndex = 1; path = tape_accessors.txt; sourceTree = "<group>"; };
+		06F6CF12B3976FDAED7F0C5E /* tape_accessors.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = tape_accessors.txt; sourceTree = "<group>"; };
 		0DF94DC0CB72D79E8E313641 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1023F19C235509902ED6A45D /* FusePreviewProvider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FusePreviewProvider.m; sourceTree = "<group>"; };
-		141590F18733F6F13B5A3338 /* mmc.c */ = {isa = PBXFileReference; includeInIndex = 1; path = mmc.c; sourceTree = "<group>"; };
+		141590F18733F6F13B5A3338 /* mmc.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = mmc.c; sourceTree = "<group>"; };
 		17B7EA54DEAA53EDDE170F7D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1AE4CB39885FAC594B58C944 /* libspectrum.h.in */ = {isa = PBXFileReference; includeInIndex = 1; path = libspectrum.h.in; sourceTree = "<group>"; };
-		1B20E6E3DD7253F725C7D79B /* timings.c */ = {isa = PBXFileReference; includeInIndex = 1; path = timings.c; sourceTree = "<group>"; };
+		1AE4CB39885FAC594B58C944 /* libspectrum.h.in */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = libspectrum.h.in; sourceTree = "<group>"; };
+		1B20E6E3DD7253F725C7D79B /* timings.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = timings.c; sourceTree = "<group>"; };
 		1CFEB80849DD3912D5804DF3 /* preview.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = preview.entitlements; sourceTree = "<group>"; };
-		20754D8F4489EED5EF355F14 /* tzx_read.c */ = {isa = PBXFileReference; includeInIndex = 1; path = tzx_read.c; sourceTree = "<group>"; };
+		20754D8F4489EED5EF355F14 /* tzx_read.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = tzx_read.c; sourceTree = "<group>"; };
 		24464C0C88E9CC4D76B80B74 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		26CD1C427B2F2504E9352763 /* tape.c */ = {isa = PBXFileReference; includeInIndex = 1; path = tape.c; sourceTree = "<group>"; };
-		29E63BA12E2232D776776217 /* snap_accessors.txt */ = {isa = PBXFileReference; includeInIndex = 1; path = snap_accessors.txt; sourceTree = "<group>"; };
+		26CD1C427B2F2504E9352763 /* tape.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = tape.c; sourceTree = "<group>"; };
+		29E63BA12E2232D776776217 /* snap_accessors.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = snap_accessors.txt; sourceTree = "<group>"; };
 		2CC94E5D83F1FF8C1460A9C0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		2F927E3374649AFB4B1877ED /* zxs.c */ = {isa = PBXFileReference; includeInIndex = 1; path = zxs.c; sourceTree = "<group>"; };
-		3042155AAF3AD1C95D733713 /* utilities.c */ = {isa = PBXFileReference; includeInIndex = 1; path = utilities.c; sourceTree = "<group>"; };
+		2F927E3374649AFB4B1877ED /* zxs.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = zxs.c; sourceTree = "<group>"; };
+		3042155AAF3AD1C95D733713 /* utilities.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = utilities.c; sourceTree = "<group>"; };
 		33B066E6393ABC298880FFAC /* JWSpectrumScreen.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JWSpectrumScreen.h; sourceTree = "<group>"; };
-		3451B24E1E1C9484E5CBD982 /* rzx.c */ = {isa = PBXFileReference; includeInIndex = 1; path = rzx.c; sourceTree = "<group>"; };
-		3FC787B692D6560F6B24EC1C /* tape_block.c */ = {isa = PBXFileReference; includeInIndex = 1; path = tape_block.c; sourceTree = "<group>"; };
+		3451B24E1E1C9484E5CBD982 /* rzx.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = rzx.c; sourceTree = "<group>"; };
+		3FC787B692D6560F6B24EC1C /* tape_block.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = tape_block.c; sourceTree = "<group>"; };
 		434E99E08BF416B82D890F87 /* JWSpectrumScreenConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JWSpectrumScreenConstants.h; sourceTree = "<group>"; };
 		48DFF329ACAE551C2DC67986 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		4A1878067E18ED54A1281158 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		4BF3A827211B390B5DCB8A06 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
-		4F841F3806579201A28FC316 /* sna.c */ = {isa = PBXFileReference; includeInIndex = 1; path = sna.c; sourceTree = "<group>"; };
-		5206A32E0EDBABE2DF486F25 /* microdrive.c */ = {isa = PBXFileReference; includeInIndex = 1; path = microdrive.c; sourceTree = "<group>"; };
+		4F841F3806579201A28FC316 /* sna.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = sna.c; sourceTree = "<group>"; };
+		5206A32E0EDBABE2DF486F25 /* microdrive.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = microdrive.c; sourceTree = "<group>"; };
 		55AC70CDB73427964D5AA79F /* FuseThumbnailProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FuseThumbnailProvider.h; sourceTree = "<group>"; };
-		568A7AE906EDCC3B343A4CC1 /* creator.c */ = {isa = PBXFileReference; includeInIndex = 1; path = creator.c; sourceTree = "<group>"; };
-		5731592D3B5FEA1F4342C4D1 /* snp.c */ = {isa = PBXFileReference; includeInIndex = 1; path = snp.c; sourceTree = "<group>"; };
-		596716DA0B424FBB60A9BB05 /* tzx_write.c */ = {isa = PBXFileReference; includeInIndex = 1; path = tzx_write.c; sourceTree = "<group>"; };
+		568A7AE906EDCC3B343A4CC1 /* creator.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = creator.c; sourceTree = "<group>"; };
+		5731592D3B5FEA1F4342C4D1 /* snp.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = snp.c; sourceTree = "<group>"; };
+		596716DA0B424FBB60A9BB05 /* tzx_write.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = tzx_write.c; sourceTree = "<group>"; };
 		5CB6ED9AD3A5E8BB50349681 /* FusePreviewProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FusePreviewProvider.h; sourceTree = "<group>"; };
-		5D07C6AA222B74BCAD07FF63 /* ghash.c */ = {isa = PBXFileReference; includeInIndex = 1; path = ghash.c; sourceTree = "<group>"; };
+		5D07C6AA222B74BCAD07FF63 /* ghash.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = ghash.c; sourceTree = "<group>"; };
 		61DF000BCA65AB1EA9430F1D /* FuseThumbnailProvider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FuseThumbnailProvider.m; sourceTree = "<group>"; };
-		638B9C0C7AE07A38CA5C67C0 /* plusd.c */ = {isa = PBXFileReference; includeInIndex = 1; path = plusd.c; sourceTree = "<group>"; };
+		638B9C0C7AE07A38CA5C67C0 /* plusd.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = plusd.c; sourceTree = "<group>"; };
 		64A51B336F1E452B905750E9 /* LibspectrumSCRExtractor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LibspectrumSCRExtractor.m; sourceTree = "<group>"; };
 		68B682564E898BFCD6A8365C /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		6C7058BEA0B192FFCF381158 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
-		6EA5ACAA5D6C0F13C54B49B4 /* memory.c */ = {isa = PBXFileReference; includeInIndex = 1; path = memory.c; sourceTree = "<group>"; };
-		71BAC95E504ADE5009402E56 /* snapshot.c */ = {isa = PBXFileReference; includeInIndex = 1; path = snapshot.c; sourceTree = "<group>"; };
-		74737076FF155D7796FBB613 /* warajevo_read.c */ = {isa = PBXFileReference; includeInIndex = 1; path = warajevo_read.c; sourceTree = "<group>"; };
+		6EA5ACAA5D6C0F13C54B49B4 /* memory.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = memory.c; sourceTree = "<group>"; };
+		71BAC95E504ADE5009402E56 /* snapshot.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = snapshot.c; sourceTree = "<group>"; };
+		74737076FF155D7796FBB613 /* warajevo_read.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = warajevo_read.c; sourceTree = "<group>"; };
 		7597DB6F88ED230BC91DE151 /* LibspectrumSCRExtractor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LibspectrumSCRExtractor.h; sourceTree = "<group>"; };
 		765485F634929FA997707244 /* JWSpectrumScreen.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JWSpectrumScreen.m; sourceTree = "<group>"; };
-		76EEDB6B4ACCE2FD6E655E91 /* crypto.c */ = {isa = PBXFileReference; includeInIndex = 1; path = crypto.c; sourceTree = "<group>"; };
+		76EEDB6B4ACCE2FD6E655E91 /* crypto.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = crypto.c; sourceTree = "<group>"; };
 		784298390B25BABEB245D667 /* AttributeManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AttributeManager.h; sourceTree = "<group>"; };
-		7B00356EABF645AD3ACB6327 /* glock.c */ = {isa = PBXFileReference; includeInIndex = 1; path = glock.c; sourceTree = "<group>"; };
+		7B00356EABF645AD3ACB6327 /* glock.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = glock.c; sourceTree = "<group>"; };
 		7BFC49176D2010FE33B890CA /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		8855EB2BEDBF7AEEF8930B3E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		8BF948E6DC47ADDB34A892FA /* AttributeManager.c */ = {isa = PBXFileReference; includeInIndex = 1; path = AttributeManager.c; sourceTree = "<group>"; };
-		976F15E91EBFE255E71A8874 /* libspectrum.c */ = {isa = PBXFileReference; includeInIndex = 1; path = libspectrum.c; sourceTree = "<group>"; };
-		A0A4DA34B6BF145D5AD65973 /* buffer.c */ = {isa = PBXFileReference; includeInIndex = 1; path = buffer.c; sourceTree = "<group>"; };
-		A1DB19E5C7C840F8BC06AE55 /* garray.c */ = {isa = PBXFileReference; includeInIndex = 1; path = garray.c; sourceTree = "<group>"; };
-		A22922693A9D8EA033AA6345 /* ide.c */ = {isa = PBXFileReference; includeInIndex = 1; path = ide.c; sourceTree = "<group>"; };
-		A78508A52445249FE26486AB /* pzx_read.c */ = {isa = PBXFileReference; includeInIndex = 1; path = pzx_read.c; sourceTree = "<group>"; };
+		8BF948E6DC47ADDB34A892FA /* AttributeManager.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = AttributeManager.c; sourceTree = "<group>"; };
+		976F15E91EBFE255E71A8874 /* libspectrum.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = libspectrum.c; sourceTree = "<group>"; };
+		A0A4DA34B6BF145D5AD65973 /* buffer.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = buffer.c; sourceTree = "<group>"; };
+		A1DB19E5C7C840F8BC06AE55 /* garray.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = garray.c; sourceTree = "<group>"; };
+		A22922693A9D8EA033AA6345 /* ide.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = ide.c; sourceTree = "<group>"; };
+		A78508A52445249FE26486AB /* pzx_read.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = pzx_read.c; sourceTree = "<group>"; };
 		AB02332DFB5394BB3033E5EC /* FuseQLThumbnail.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FuseQLThumbnail.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		AB66B47557AB9CE1866E53C9 /* tap.c */ = {isa = PBXFileReference; includeInIndex = 1; path = tap.c; sourceTree = "<group>"; };
+		AB66B47557AB9CE1866E53C9 /* tap.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = tap.c; sourceTree = "<group>"; };
 		B146C31BF4DF7FFCAFE773CD /* QuickLookThumbnailing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLookThumbnailing.framework; path = System/Library/Frameworks/QuickLookThumbnailing.framework; sourceTree = SDKROOT; };
 		B3A2C1C92D45CB07D1D26D47 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
 		B566DD8F4CE8C0EFB492AC77 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
-		BA3B71D4516FB16D3A489C72 /* bzip2.c */ = {isa = PBXFileReference; includeInIndex = 1; path = bzip2.c; sourceTree = "<group>"; };
+		BA3B71D4516FB16D3A489C72 /* bzip2.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = bzip2.c; sourceTree = "<group>"; };
 		BDBF307E27AD9869B732F819 /* thumbnail.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = thumbnail.entitlements; sourceTree = "<group>"; };
 		C1C82F4FFC7B34726DD47C78 /* FuseQLPreview.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FuseQLPreview.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		C48DB51C5B52BCABD30CDB72 /* szx.c */ = {isa = PBXFileReference; includeInIndex = 1; path = szx.c; sourceTree = "<group>"; };
-		C4BFDDC015F1BEC4AF8D2418 /* csw.c */ = {isa = PBXFileReference; includeInIndex = 1; path = csw.c; sourceTree = "<group>"; };
+		C48DB51C5B52BCABD30CDB72 /* szx.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = szx.c; sourceTree = "<group>"; };
+		C4BFDDC015F1BEC4AF8D2418 /* csw.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = csw.c; sourceTree = "<group>"; };
 		C7332A474C904C17E4CC7E4E /* ColourMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ColourMacros.h; sourceTree = "<group>"; };
-		C9B7C75ABC1FE60C98029383 /* ColourMacros.c */ = {isa = PBXFileReference; includeInIndex = 1; path = ColourMacros.c; sourceTree = "<group>"; };
-		CB44E0C17114121F92DB2217 /* sp.c */ = {isa = PBXFileReference; includeInIndex = 1; path = sp.c; sourceTree = "<group>"; };
+		C9B7C75ABC1FE60C98029383 /* ColourMacros.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = ColourMacros.c; sourceTree = "<group>"; };
+		CB44E0C17114121F92DB2217 /* sp.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = sp.c; sourceTree = "<group>"; };
 		CB6CE29BFBBE30D8C0FD7786 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		D1A4C0F5E3229EE9BF55F870 /* wav.c */ = {isa = PBXFileReference; includeInIndex = 1; path = wav.c; sourceTree = "<group>"; };
-		FE9912020000000000000002 /* dsnap.c */ = {isa = PBXFileReference; includeInIndex = 1; path = dsnap.c; sourceTree = "<group>"; };
-		FE9912040000000000000004 /* wav_macos.c */ = {isa = PBXFileReference; includeInIndex = 1; path = wav_macos.c; sourceTree = "<group>"; };
-		FE9912070000000000000007 /* wav_internals.h */ = {isa = PBXFileReference; includeInIndex = 1; path = wav_internals.h; sourceTree = "<group>"; };
-		FE9912090000000000000009 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = /System/Library/Frameworks/AudioToolbox.framework; sourceTree = "<absolute>"; };
-		D1E36E077C2F1F9F74D9419C /* zip.c */ = {isa = PBXFileReference; includeInIndex = 1; path = zip.c; sourceTree = "<group>"; };
+		D1A4C0F5E3229EE9BF55F870 /* wav.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = wav.c; sourceTree = "<group>"; };
+		D1E36E077C2F1F9F74D9419C /* zip.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
 		D63D9E3D2F7792AAC4FD5817 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		D76632653EA398556A0D9F06 /* gslist.c */ = {isa = PBXFileReference; includeInIndex = 1; path = gslist.c; sourceTree = "<group>"; };
-		DB704D5FE1A0F5F09A8BD4D7 /* z80em.c */ = {isa = PBXFileReference; includeInIndex = 1; path = z80em.c; sourceTree = "<group>"; };
-		E211096E3C2C99B0C016D63A /* symbol_table.c */ = {isa = PBXFileReference; includeInIndex = 1; path = symbol_table.c; sourceTree = "<group>"; };
-		E2A9FC7F58C94043055BB19F /* zlib.c */ = {isa = PBXFileReference; includeInIndex = 1; path = zlib.c; sourceTree = "<group>"; };
+		D76632653EA398556A0D9F06 /* gslist.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = gslist.c; sourceTree = "<group>"; };
+		DB704D5FE1A0F5F09A8BD4D7 /* z80em.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = z80em.c; sourceTree = "<group>"; };
+		E211096E3C2C99B0C016D63A /* symbol_table.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = symbol_table.c; sourceTree = "<group>"; };
+		E2A9FC7F58C94043055BB19F /* zlib.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = zlib.c; sourceTree = "<group>"; };
 		E6CF1CB94EABAFE0BE444628 /* QuickLookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLookUI.framework; path = System/Library/Frameworks/QuickLookUI.framework; sourceTree = SDKROOT; };
-		F681EB3287BA2EF4A05D0ACA /* z80.c */ = {isa = PBXFileReference; includeInIndex = 1; path = z80.c; sourceTree = "<group>"; };
+		F681EB3287BA2EF4A05D0ACA /* z80.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = z80.c; sourceTree = "<group>"; };
 		F946238C52A8088320605510 /* PixelData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PixelData.h; sourceTree = "<group>"; };
-		FD2C927945BB49FF15095B80 /* dck.c */ = {isa = PBXFileReference; includeInIndex = 1; path = dck.c; sourceTree = "<group>"; };
+		FD2C927945BB49FF15095B80 /* dck.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = dck.c; sourceTree = "<group>"; };
+		FE9912020000000000000002 /* dsnap.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = dsnap.c; sourceTree = "<group>"; };
+		FE9912040000000000000004 /* wav_macos.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = wav_macos.c; sourceTree = "<group>"; };
+		FE9912070000000000000007 /* wav_internals.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = wav_internals.h; sourceTree = "<group>"; };
+		FE9912090000000000000009 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = /System/Library/Frameworks/AudioToolbox.framework; sourceTree = "<absolute>"; };
 		FF65424BE2F127B4B102DF25 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -260,7 +266,7 @@
 				33440AB2918F83C59B3B9BF2 /* ImageIO.framework in Frameworks */,
 				CAE1BAE9A1DEEF9C341400EE /* QuickLook.framework in Frameworks */,
 				BF852936184EFD8968C92E25 /* QuickLookUI.framework in Frameworks */,
-				FE9912080000000000000008 /* AudioToolbox.framework in Frameworks (Preview) */,
+				FE9912080000000000000008 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +282,7 @@
 				26EAF44067087DF89B325A2A /* Foundation.framework in Frameworks */,
 				AF34EA43646F0089DD47E3F1 /* ImageIO.framework in Frameworks */,
 				DCD004CE8D0AAB92A33D3112 /* QuickLookThumbnailing.framework in Frameworks */,
-				FE99120A000000000000000A /* AudioToolbox.framework in Frameworks (Thumbnail) */,
+				FE99120A000000000000000A /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,7 +328,6 @@
 				55AC70CDB73427964D5AA79F /* FuseThumbnailProvider.h */,
 				BDBF307E27AD9869B732F819 /* thumbnail.entitlements */,
 			);
-			name = thumbnail;
 			path = thumbnail;
 			sourceTree = "<group>";
 		};
@@ -334,7 +339,6 @@
 				5CB6ED9AD3A5E8BB50349681 /* FusePreviewProvider.h */,
 				1CFEB80849DD3912D5804DF3 /* preview.entitlements */,
 			);
-			name = preview;
 			path = preview;
 			sourceTree = "<group>";
 		};
@@ -398,6 +402,7 @@
 				5558447C66281C90B5DB91AA /* preview */,
 				7597DB6F88ED230BC91DE151 /* LibspectrumSCRExtractor.h */,
 				64A51B336F1E452B905750E9 /* LibspectrumSCRExtractor.m */,
+				FE8E3FE32FDB1418009FDB81 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -413,7 +418,6 @@
 				434E99E08BF416B82D890F87 /* JWSpectrumScreenConstants.h */,
 				F946238C52A8088320605510 /* PixelData.h */,
 			);
-			name = JWSpectrumScreen;
 			path = JWSpectrumScreen;
 			sourceTree = "<group>";
 		};
@@ -434,8 +438,15 @@
 				7B00356EABF645AD3ACB6327 /* glock.c */,
 				D76632653EA398556A0D9F06 /* gslist.c */,
 			);
-			name = myglib;
 			path = myglib;
+			sourceTree = "<group>";
+		};
+		FE8E3FE32FDB1418009FDB81 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				FE9912090000000000000009 /* AudioToolbox.framework */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -499,8 +510,6 @@
 				Base,
 			);
 			mainGroup = CC9A19E7F9459059F237F210;
-			minimizedProjectReferenceProxies = 0;
-			preferredProjectObjectVersion = 77;
 			productRefGroup = E8BCB17CE658352A1E74B2B8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -565,8 +574,8 @@
 				A4B1619A233951307D5C8DFA /* utilities.c in Sources */,
 				961C21874FFE9F716164B3D2 /* warajevo_read.c in Sources */,
 				9E1F88D4525152BE4E6074BD /* wav.c in Sources */,
-				FE9912010000000000000001 /* dsnap.c in Sources (Preview) */,
-				FE9912030000000000000003 /* wav_macos.c in Sources (Preview) */,
+				FE9912010000000000000001 /* dsnap.c in Sources */,
+				FE9912030000000000000003 /* wav_macos.c in Sources */,
 				675B0F1FCC572327907F8EC0 /* z80.c in Sources */,
 				9B14039F55A4B2D4A2153260 /* z80em.c in Sources */,
 				23B00CE803A2CD7738144297 /* zip.c in Sources */,
@@ -619,8 +628,8 @@
 				224963DF6C1E88F1978BE079 /* utilities.c in Sources */,
 				05111A5DD95F2F935C17702B /* warajevo_read.c in Sources */,
 				C9826EDBBC1E2B702092F4E2 /* wav.c in Sources */,
-				FE9912050000000000000005 /* dsnap.c in Sources (Thumbnail) */,
-				FE9912060000000000000006 /* wav_macos.c in Sources (Thumbnail) */,
+				FE9912050000000000000005 /* dsnap.c in Sources */,
+				FE9912060000000000000006 /* wav_macos.c in Sources */,
 				B9A28D05EC00121EF374068E /* z80.c in Sources */,
 				4D240E67DA18DB58C448932D /* z80em.c in Sources */,
 				81F9CE9F7AF285647AB8008B /* zip.c in Sources */,
@@ -643,6 +652,7 @@
 		052B4D1F1101CCCC42640BCD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				AUTOMATION_APPLE_EVENTS = NO;
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_ENTITLEMENTS = preview/preview.entitlements;
 				CODE_SIGN_IDENTITY = "-";
@@ -650,13 +660,24 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PHOTO_LIBRARY = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)",
 					"$(SRCROOT)/JWSpectrumScreen",
 					"$(SRCROOT)/../libspectrum",
 				);
 				INFOPLIST_FILE = preview/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../../../../Frameworks @executable_path/../../../../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../../../../Frameworks",
+					"@executable_path/../../../../../Frameworks",
+				);
 				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
@@ -667,6 +688,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = FuseXPreferences.quicklook.preview;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				RUNTIME_EXCEPTION_ALLOW_DYLD_ENVIRONMENT_VARIABLES = NO;
+				RUNTIME_EXCEPTION_ALLOW_JIT = NO;
+				RUNTIME_EXCEPTION_ALLOW_UNSIGNED_EXECUTABLE_MEMORY = NO;
+				RUNTIME_EXCEPTION_DEBUGGING_TOOL = NO;
+				RUNTIME_EXCEPTION_DISABLE_EXECUTABLE_PAGE_PROTECTION = NO;
+				RUNTIME_EXCEPTION_DISABLE_LIBRARY_VALIDATION = NO;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = appex;
@@ -740,6 +767,7 @@
 		93625862126D2D72F3B6B55C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				AUTOMATION_APPLE_EVENTS = NO;
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_ENTITLEMENTS = thumbnail/thumbnail.entitlements;
 				CODE_SIGN_IDENTITY = "-";
@@ -747,6 +775,14 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = 48UV5KV3FB;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PHOTO_LIBRARY = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)",
@@ -754,7 +790,11 @@
 					"$(SRCROOT)/../libspectrum",
 				);
 				INFOPLIST_FILE = thumbnail/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../../../../Frameworks @executable_path/../../../../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../../../../Frameworks",
+					"@executable_path/../../../../../Frameworks",
+				);
 				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
@@ -766,6 +806,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = FuseXPreferences.quicklook.thumbnail;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				RUNTIME_EXCEPTION_ALLOW_DYLD_ENVIRONMENT_VARIABLES = NO;
+				RUNTIME_EXCEPTION_ALLOW_JIT = NO;
+				RUNTIME_EXCEPTION_ALLOW_UNSIGNED_EXECUTABLE_MEMORY = NO;
+				RUNTIME_EXCEPTION_DEBUGGING_TOOL = NO;
+				RUNTIME_EXCEPTION_DISABLE_EXECUTABLE_PAGE_PROTECTION = NO;
+				RUNTIME_EXCEPTION_DISABLE_LIBRARY_VALIDATION = NO;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = appex;
@@ -775,6 +821,7 @@
 		AB4355810F15E5289FB3CF32 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				AUTOMATION_APPLE_EVENTS = NO;
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_ENTITLEMENTS = preview/preview.entitlements;
 				CODE_SIGN_IDENTITY = "-";
@@ -782,6 +829,13 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PHOTO_LIBRARY = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)",
@@ -789,7 +843,11 @@
 					"$(SRCROOT)/../libspectrum",
 				);
 				INFOPLIST_FILE = preview/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../../../../Frameworks @executable_path/../../../../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../../../../Frameworks",
+					"@executable_path/../../../../../Frameworks",
+				);
 				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
@@ -801,6 +859,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = FuseXPreferences.quicklook.preview;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				RUNTIME_EXCEPTION_ALLOW_DYLD_ENVIRONMENT_VARIABLES = NO;
+				RUNTIME_EXCEPTION_ALLOW_JIT = NO;
+				RUNTIME_EXCEPTION_ALLOW_UNSIGNED_EXECUTABLE_MEMORY = NO;
+				RUNTIME_EXCEPTION_DEBUGGING_TOOL = NO;
+				RUNTIME_EXCEPTION_DISABLE_EXECUTABLE_PAGE_PROTECTION = NO;
+				RUNTIME_EXCEPTION_DISABLE_LIBRARY_VALIDATION = NO;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = appex;
@@ -810,6 +874,7 @@
 		BE2CCE9EFD1671E72C65F766 /* Deployment */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				AUTOMATION_APPLE_EVENTS = NO;
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_ENTITLEMENTS = preview/preview.entitlements;
 				CODE_SIGN_IDENTITY = "-";
@@ -817,13 +882,24 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PHOTO_LIBRARY = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)",
 					"$(SRCROOT)/JWSpectrumScreen",
 					"$(SRCROOT)/../libspectrum",
 				);
 				INFOPLIST_FILE = preview/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../../../../Frameworks @executable_path/../../../../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../../../../Frameworks",
+					"@executable_path/../../../../../Frameworks",
+				);
 				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
@@ -834,6 +910,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = FuseXPreferences.quicklook.preview;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				RUNTIME_EXCEPTION_ALLOW_DYLD_ENVIRONMENT_VARIABLES = NO;
+				RUNTIME_EXCEPTION_ALLOW_JIT = NO;
+				RUNTIME_EXCEPTION_ALLOW_UNSIGNED_EXECUTABLE_MEMORY = NO;
+				RUNTIME_EXCEPTION_DEBUGGING_TOOL = NO;
+				RUNTIME_EXCEPTION_DISABLE_EXECUTABLE_PAGE_PROTECTION = NO;
+				RUNTIME_EXCEPTION_DISABLE_LIBRARY_VALIDATION = NO;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = appex;
@@ -843,6 +925,7 @@
 		D21335C576EB610DF3578E1B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				AUTOMATION_APPLE_EVENTS = NO;
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_ENTITLEMENTS = thumbnail/thumbnail.entitlements;
 				CODE_SIGN_IDENTITY = "-";
@@ -850,13 +933,25 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = 48UV5KV3FB;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PHOTO_LIBRARY = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)",
 					"$(SRCROOT)/JWSpectrumScreen",
 					"$(SRCROOT)/../libspectrum",
 				);
 				INFOPLIST_FILE = thumbnail/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../../../../Frameworks @executable_path/../../../../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../../../../Frameworks",
+					"@executable_path/../../../../../Frameworks",
+				);
 				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
@@ -867,6 +962,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = FuseXPreferences.quicklook.thumbnail;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				RUNTIME_EXCEPTION_ALLOW_DYLD_ENVIRONMENT_VARIABLES = NO;
+				RUNTIME_EXCEPTION_ALLOW_JIT = NO;
+				RUNTIME_EXCEPTION_ALLOW_UNSIGNED_EXECUTABLE_MEMORY = NO;
+				RUNTIME_EXCEPTION_DEBUGGING_TOOL = NO;
+				RUNTIME_EXCEPTION_DISABLE_EXECUTABLE_PAGE_PROTECTION = NO;
+				RUNTIME_EXCEPTION_DISABLE_LIBRARY_VALIDATION = NO;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = appex;
@@ -987,6 +1088,7 @@
 		F935FA67CE144A4DF34BAEAA /* Deployment */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				AUTOMATION_APPLE_EVENTS = NO;
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_ENTITLEMENTS = thumbnail/thumbnail.entitlements;
 				CODE_SIGN_IDENTITY = "-";
@@ -994,13 +1096,25 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = 48UV5KV3FB;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PHOTO_LIBRARY = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)",
 					"$(SRCROOT)/JWSpectrumScreen",
 					"$(SRCROOT)/../libspectrum",
 				);
 				INFOPLIST_FILE = thumbnail/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../../../../Frameworks @executable_path/../../../../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../../../../Frameworks",
+					"@executable_path/../../../../../Frameworks",
+				);
 				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
@@ -1011,6 +1125,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = FuseXPreferences.quicklook.thumbnail;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				RUNTIME_EXCEPTION_ALLOW_DYLD_ENVIRONMENT_VARIABLES = NO;
+				RUNTIME_EXCEPTION_ALLOW_JIT = NO;
+				RUNTIME_EXCEPTION_ALLOW_UNSIGNED_EXECUTABLE_MEMORY = NO;
+				RUNTIME_EXCEPTION_DEBUGGING_TOOL = NO;
+				RUNTIME_EXCEPTION_DISABLE_EXECUTABLE_PAGE_PROTECTION = NO;
+				RUNTIME_EXCEPTION_DISABLE_LIBRARY_VALIDATION = NO;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = appex;
